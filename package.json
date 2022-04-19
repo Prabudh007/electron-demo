@@ -11,10 +11,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "electron-updater": "^5.0.1"
+  },
   "devDependencies": {
     "electron": "^18.0.4",
-    "electron-builder": "^23.0.3",
-    "electron-updater": "^5.0.1"
+    "electron-builder": "^23.0.3"
   },
   "repository": {
     "type" : "git",
