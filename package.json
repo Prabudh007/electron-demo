@@ -1,0 +1,17 @@
+{
+  "name": "electron-auto-update-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^18.0.4",
+    "electron-builder": "^23.0.3",
+    "electron-updater": "^5.0.1"
+  }
+}
