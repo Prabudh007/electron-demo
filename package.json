@@ -1,25 +1,50 @@
 {
-  "name": "electron-auto-update-example",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Readit",
+  "version": "0.9.0",
+  "description": "Master Electron Project",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
+    "build": "electron-builder",
+    "build:all": "electron-builder -mwl",
+    "release": "electron-builder -w -p onTagOrDraft",
+    "win-cert": "electron-builder create-self-signed-cert -p prabudhmishra"
   },
-  "keywords": [],
-  "author": "",
+  "repository": "https://github.com/Prabudh007/electron-demo",
+  "homepage": "https://github.com/Prabudh007/electron-demo",
+  "keywords": [
+    "Electron",
+    "Demo",
+    "Master Electron"
+  ],
+  "author": "Prabudh Mishra",
   "license": "ISC",
   "dependencies": {
+    "electron-log": "^4.4.6",
     "electron-updater": "^5.0.1"
   },
   "devDependencies": {
     "electron": "^18.0.4",
     "electron-builder": "^23.0.3"
   },
-  "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Prabudh007/electron-demo.git"
+  "build": {
+    "appId": "com.prabudh.readit",
+    "copyright": "Copyright Prabudh Mishra",
+    "publish": {
+      "provider": "github",
+      "token": "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"
+    },
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "certificateFile": "private/prabudhmishra.pfx",
+      "certificatePassword": "",
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "prabudhmishra"
+    },
+    "linux": {
+      "category": "Utility"
+    }
   }
 }
