@@ -1,6 +1,6 @@
 {
   "name": "Readit",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Master Electron Project",
   "main": "main.js",
   "scripts": {
@@ -31,8 +31,7 @@
     "appId": "com.prabudh.readit",
     "copyright": "Copyright Prabudh Mishra",
     "publish": {
-      "provider": "github",
-      "token": "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"
+      "provider": "github"
     },
     "mac": {
       "category": "public.app-category.productivity"

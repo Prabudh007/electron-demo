@@ -28,4 +28,16 @@ module.exports = () => {
             if(buttonIndex === 0) autoUpdater.downloadUpdate()
         })
     })
+
+    autoUpdater.on("update-downloaded", (event, releaseNotes, releaseName) => {
+        dialog.showMessageBox({
+            type: "info",
+            title: "Application Update",
+            message: process.platform === "win32" ? releaseNotes : releaseName,
+            detail: "A new version has been downloaded. Restart the application to apply the updates.",
+            buttons: ["Restart", "Later"],
+        }).then((returnValue) => {
+            if (returnValue.response === 0) autoUpdater.quitAndInstall();
+        })
+    })
 }
