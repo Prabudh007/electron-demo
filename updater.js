@@ -23,18 +23,21 @@ module.exports = () => {
             title: 'Update available',
             message: 'A new version of Readit is available. Do you want to update now?',
             buttons: ['Update', 'No']
-        }).then(result => {
-            let buttonIndex = result.response;
+        }).then(returnValue => {
+            let buttonIndex = returnValue.response;
             if(buttonIndex === 0) autoUpdater.downloadUpdate()
         })
     })
 
+    // Listen for updates downloaded
     autoUpdater.on("update-downloaded", (event, releaseNotes, releaseName) => {
+
+        // Prompt user to install
         dialog.showMessageBox({
             type: "info",
             title: "Application Update",
-            message: process.platform === "win32" ? releaseNotes : releaseName,
-            detail: "A new version has been downloaded. Restart the application to apply the updates.",
+            message: "A new version has been downloaded. Restart the application to apply the updates.",
+            detail: process.platform === "win32" ? releaseNotes : releaseName,
             buttons: ["Restart", "Later"],
         }).then((returnValue) => {
             if (returnValue.response === 0) autoUpdater.quitAndInstall();

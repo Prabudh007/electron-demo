@@ -1,13 +1,13 @@
 {
   "name": "Readit",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "description": "Master Electron Project",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
     "build:all": "electron-builder -mwl",
-    "release": "electron-builder -w -p onTagOrDraft",
+    "release": "electron-builder -mwl -p onTagOrDraft",
     "win-cert": "electron-builder create-self-signed-cert -p prabudhmishra"
   },
   "repository": "https://github.com/Prabudh007/electron-demo",
@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "electron": "^18.0.4",
-    "electron-builder": "^23.0.3"
+    "electron-builder": "^23.0.3",
+    "nodemon": "^2.0.15"
   },
   "build": {
     "appId": "com.prabudh.readit",
@@ -37,10 +38,19 @@
       "category": "public.app-category.productivity"
     },
     "win": {
+      "target": [
+        "nsis"
+      ],
       "certificateFile": "private/prabudhmishra.pfx",
       "certificatePassword": "",
       "verifyUpdateCodeSignature": false,
       "publisherName": "prabudhmishra"
+    },
+    "nsis": {
+      "oneClick": false,
+      "uninstallDisplayName": "readit-uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true
     },
     "linux": {
       "category": "Utility"
